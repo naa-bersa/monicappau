@@ -330,3 +330,69 @@ section {
 #portfolio {
     padding-bottom: 40px;
 }
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+  /* Container padding smaller */
+  .container {
+    padding: 0 10px;
+  }
+
+  /* Header: stack logo and nav vertically */
+  header .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  nav ul li a {
+    font-size: 1.1rem;
+  }
+
+  /* Hero text: smaller font size */
+  .hero h2 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    padding: 0 15px;
+  }
+
+  /* Portfolio grid: single column */
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* Project description: remove max-width to use full width */
+  .project-description {
+    max-width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  /* About container: stack paragraphs full width */
+  .about-container {
+    flex-direction: column;
+    max-width: 100%;
+    padding: 20px 10px;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+  }
+
+  /* Buttons: full width or near full width */
+  .btn {
+    width: 100%;
+    padding: 12px 0;
+    font-size: 1.1rem;
+    text-align: center;
+  }
+}
