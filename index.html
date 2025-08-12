@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monica Appau-Nkansah - UX/UI & Frontend Designer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1 class="logo">Monica Appau-Nkansah</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#portfolio">Project</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li> 
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-text">
+            <h2>UX/UI & Frontend Designer</h2>
+            <p>I create clean, user-friendly, and responsive digital experiences.</p>
+            <a href="#portfolio" class="btn">View My Work</a>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-link="https://embed.figma.com/proto/wevdExIxjgVDdpGN8cJpnr/Ride-sharing?node-id=114-84&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&embed-host=share">
+                    <img src="images/rideshare.png" alt="Ridesharing app">
+                    <h3>Ride Share App</h3>
+                    <p class="project-description">Find rides fast with a clean, simple interface built for ease and speed.</p>
+                </div>
+                <div class="portfolio-item" data-link="https://embed.figma.com/proto/kg8eevNXgdNMpMS0tmxvwd/Tutor-Student-app?node-id=114-84&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&embed-host=share">
+                    <img src="images/final_project.jpg" alt="Tutoring app">
+                    <h3>Tutoring App</h3>
+                    <p class="project-description">Connecting tutors and students in a friendly, efficient learning space</p>
+                </div>
+                <div class="portfolio-item" data-link="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/oQZUIUtVwIfrkLLV2w92Zg/Banking-Site?node-id=1-2&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2&embed-host=share">
+                    <img src="images/Apple_MacBook_Air_M1_Mockup_v01.png" alt="Banking Website Project">
+                    <h3>Banking Website</h3>
+                    <p class="project-description">Simple, secure banking designed to make money management easy.</p>
+                </div>
+            </div>
+            
+                
+            </div>
+        </div>
+    </section>
+
+     <!-- OTHER PROJECTS SECTION -->
+     <section id="other-projects" class="portfolio-section">
+        <div class="container" style="text-align: center;">
+            <h2>More of My Work</h2>
+            <p>You can explore more of my projects and prototypes on my extended portfolio.</p>
+            <a href="https://monicaappau.framer.website/" target="_blank" class="btn">
+                View More Projects
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container about-container">
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>
+                    I’m a UX/UI and Frontend Designer who cares deeply about how people experience technology. 
+                    For me, design isn’t just about making things look good, it’s about understanding people, solving problems, 
+                    and creating something that makes their day a little easier.
+                </p>
+                <p>
+                    I’ve built a strong foundation in HTML, CSS, JavaScript, Figma, and Adobe Creative Suite, and I’m always learning new ways to improve my craft. 
+                    I believe growth comes from curiosity, listening, and being open to new ideas, and I bring that mindset to every project I take on.
+                </p>
+                <p>
+                    I work best in collaborative environments where everyone’s ideas are valued. 
+                    I like to keep the process enjoyable while staying focused on delivering work that adds real value to the company and the people it serves. 
+                    My goal is to create designs that not only meet expectations but help teams reach new possibilities.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>Email: <a href="mailto:yourname@example.com">mappau85@gmail.com</a></p>
+        </div>
+    </section>
+
+    <!-- Project Viewer -->
+<div id="project-viewer" class="project-viewer">
+    <span id="close-viewer">&times;</span>
+    <iframe id="project-frame" src="" frameborder="0"></iframe>
+</div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Monica Appau-Nkansah | Designed & Developed by Me</p>
+    </footer>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <span id="close">&times;</span>
+        <img id="modal-img" alt="Project Image">
+        <div class="modal-info">
+            <h3 id="modal-title"></h3>
+            <p id="modal-desc"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
