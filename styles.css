@@ -301,7 +301,7 @@ section {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 3; /* limits to 3 lines */
+    /* -webkit-line-clamp: 3; limits to 3 lines */
     -webkit-box-orient: vertical;
 }
 
