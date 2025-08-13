@@ -78,7 +78,6 @@ document.addEventListener("DOMContentLoaded", () => {
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll("nav ul li a");
 
-// Scroll event listener
 window.addEventListener("scroll", () => {
     let current = "";
 
@@ -95,5 +94,28 @@ window.addEventListener("scroll", () => {
         if (link.getAttribute("href") === `#${current}`) {
             link.classList.add("active");
         }
+    });
+});
+
+// Hamburger menu toggle with close
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("nav-menu");
+const closeMenu = document.getElementById("close-menu");
+const mobileLinks = document.querySelectorAll("#nav-menu a");
+
+// Open menu
+hamburger.addEventListener("click", () => {
+    navMenu.classList.add("active");
+});
+
+// Close menu with close button
+closeMenu.addEventListener("click", () => {
+    navMenu.classList.remove("active");
+});
+
+// Close menu when clicking a link
+mobileLinks.forEach(link => {
+    link.addEventListener("click", () => {
+        navMenu.classList.remove("active");
     });
 });

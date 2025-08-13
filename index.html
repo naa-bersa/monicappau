@@ -5,13 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monica Appau-Nkansah - UX/UI & Frontend Designer</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* HAMBURGER MENU STYLES */
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 600px) {
+            .hamburger {
+                display: block; /* show only on phone */
+            }
+
+            nav {
+                display: none; /* hide nav by default on phone */
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 15px 0;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            nav.active {
+                display: block;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
     <header>
         <div class="container">
             <h1 class="logo">Monica Appau-Nkansah</h1>
-            <nav>
+
+            <!-- Hamburger icon (phone only) -->
+            <div class="hamburger" id="hamburger">&#9776;</div>
+
+            <nav id="nav-menu">
+                <button class="close-menu" id="close-menu">&times;</button>
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#portfolio">Project</a></li>
@@ -51,9 +91,6 @@
                     <h3>Banking Website</h3>
                     <p class="project-description">Simple, secure banking designed to make money management easy.</p>
                 </div>
-            </div>
-            
-                
             </div>
         </div>
     </section>
@@ -101,10 +138,10 @@
     </section>
 
     <!-- Project Viewer -->
-<div id="project-viewer" class="project-viewer">
-    <span id="close-viewer">&times;</span>
-    <iframe id="project-frame" src="" frameborder="0"></iframe>
-</div>
+    <div id="project-viewer" class="project-viewer">
+        <span id="close-viewer">&times;</span>
+        <iframe id="project-frame" src="" frameborder="0"></iframe>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -120,6 +157,7 @@
             <p id="modal-desc"></p>
         </div>
     </div>
+
 
     <script src="script.js"></script>
 </body>
