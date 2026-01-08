@@ -159,6 +159,18 @@ nav ul li a:hover {
     padding: 15px;
 }
 
+.senior-project-section {
+    margin-top: 40px;
+   
+}
+.senior-project img {
+    padding-top: 20px;
+    height: 100%; /* fixed height for consistency */
+    width: 100%;
+    border-radius: 5px;
+    /* object-fit: cover; */
+}
+
 /* ABOUT */
 .about-container {
     display: flex;
