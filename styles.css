@@ -4,6 +4,41 @@
     box-sizing: border-box;
 }
 
+ /* HAMBURGER MENU STYLES */
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 600px) {
+            .hamburger {
+                display: block; /* show only on phone */
+            }
+
+            nav {
+                display: none; /* hide nav by default on phone */
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 15px 0;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            nav.active {
+                display: block;
+            }
+        }
+   
+
 body {
     font-family: "Inter", sans-serif;
     background: #f9f9f9;
