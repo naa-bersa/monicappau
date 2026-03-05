@@ -1,32 +1,34 @@
 
 // MOBILE NAV TOGGLE
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('nav-menu');
-const closeMenu = document.getElementById('close-menu');
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    const closeMenu = document.getElementById('close-menu');
 
-// Hide close button initially
-if(closeMenu) closeMenu.style.display = 'none';
+    if(!hamburger || !navMenu || !closeMenu) return;
 
-hamburger?.addEventListener('click', () => {
-    navMenu.classList.add('active');
-    hamburger.style.display = 'none';
-    if(closeMenu) closeMenu.style.display = 'block';
-});
-
-closeMenu?.addEventListener('click', () => {
-    navMenu.classList.remove('active');
     closeMenu.style.display = 'none';
-    if(hamburger) hamburger.style.display = 'block';
-});
 
-// Close nav when clicking a link (mobile behavior)
-const navLinks = document.querySelectorAll('#nav-menu ul li a');
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.add('active');
+        hamburger.style.display = 'none';
+        closeMenu.style.display = 'block';
+    });
 
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
+    closeMenu.addEventListener('click', () => {
         navMenu.classList.remove('active');
-        if(closeMenu) closeMenu.style.display = 'none';
-        if(hamburger) hamburger.style.display = 'block';
+        closeMenu.style.display = 'none';
+        hamburger.style.display = 'block';
+    });
+
+    // Close nav when clicking links
+    const navLinks = document.querySelectorAll('#nav-menu ul li a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            closeMenu.style.display = 'none';
+            hamburger.style.display = 'block';
+        });
     });
 });
 
