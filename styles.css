@@ -68,18 +68,34 @@ nav ul {
 
 /* Nav links active & hover underline */
 
+/* ===== Desktop / Default ===== */
 nav {
-    position: absolute; /* already set */
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background: #fff;
-    flex-direction: column;
+    position: static;      /* normal flow */
+    display: flex;         /* horizontal nav */
+    flex-direction: row;   /* horizontal */
     align-items: center;
-    gap: 15px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    z-index: 1000;
+    gap: 25px;
+    background: none;      /* transparent or as needed */
+    box-shadow: none;      /* only mobile has shadow */
 }
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+}
+
+nav ul li a {
+    font-size: 16px;
+    padding: 0;
+}
+
+/* Hamburger & close hidden on desktop */
+.hamburger,
+.close-menu {
+    display: none;
+}
+
 
 #nav-menu ul li a {
     position: relative;
@@ -107,18 +123,18 @@ nav ul li a:hover {
 }
 
 /* Hamburger for mobile */
-.hamburger,
+/* .hamburger,
 .close-menu {
     display: none;
-    position: absolute; /* or fixed */
+    position: absolute;
     top: 15px;
     right: 20px;
     font-size: 2rem;
     cursor: pointer;
     background: none;
     border: none;
-    z-index: 1100; /* higher than nav's z-index */
-}
+    z-index: 1100;
+} */
 
 /* =========================
    Intro Section
