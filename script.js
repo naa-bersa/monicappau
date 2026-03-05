@@ -1,29 +1,33 @@
-// Hamburger menu toggle
+
+// MOBILE NAV TOGGLE
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('nav-menu');
 const closeMenu = document.getElementById('close-menu');
-hamburger?.addEventListener('click', ()=>navMenu.classList.toggle('active'));
-closeMenu?.addEventListener('click', ()=>navMenu.classList.remove('active'));
 
-// Intro animations
-// window.addEventListener('load', () => {
-//     const introTitle = document.querySelector('.intro-title');
-//     const introDetails = document.querySelector('.intro-details');
+// Hide close button initially
+if(closeMenu) closeMenu.style.display = 'none';
 
-//     setTimeout(()=>introTitle.classList.add('fade-in'), 200);
-//     setTimeout(()=>introDetails.classList.add('fade-in'), 600);
-// });
+hamburger?.addEventListener('click', () => {
+    navMenu.classList.add('active');
+    hamburger.style.display = 'none';
+    if(closeMenu) closeMenu.style.display = 'block';
+});
 
+closeMenu?.addEventListener('click', () => {
+    navMenu.classList.remove('active');
+    closeMenu.style.display = 'none';
+    if(hamburger) hamburger.style.display = 'block';
+});
+
+// Close nav when clicking a link (mobile behavior)
 const navLinks = document.querySelectorAll('#nav-menu ul li a');
 
 navLinks.forEach(link => {
-  const linkHref = link.getAttribute('href');
-  // Get current page name from URL
-  const currentPage = window.location.pathname.split("/").pop();
-
-  if (linkHref === currentPage) {
-    link.classList.add('active'); // underline stays on current page
-  }
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        if(closeMenu) closeMenu.style.display = 'none';
+        if(hamburger) hamburger.style.display = 'block';
+    });
 });
 
 
