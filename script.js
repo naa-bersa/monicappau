@@ -76,3 +76,23 @@ overlay.addEventListener('click', e => {
     overlay.style.display = 'none';
   }
 });
+
+const iframe = document.getElementById("framer-iframe");
+
+iframe.addEventListener("click", () => {
+  if (iframe.src) {
+    window.open(iframe.src, "_blank");
+  }
+});
+
+const openFull = document.getElementById("open-full");
+
+caseBlocks.forEach(block => {
+  block.addEventListener('click', () => {
+    const link = block.getAttribute('data-framer-link');
+
+    iframe.src = link;
+    openFull.href = link;
+    overlay.style.display = 'block';
+  });
+});
