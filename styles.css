@@ -1006,19 +1006,93 @@ footer {
     }
 
     /* ===== Free Time / Slides ===== */
+
+     .slider {
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        padding: 0 15px;
+        scroll-behavior: smooth;
+    }
+
     .slides {
-        flex-wrap: nowrap;
+        display: flex;
+        gap: 15px;       /* space between images */
+        align-items: flex-start; /* align top so images of different heights don't look off */
     }
 
     .slide {
-        min-width: 160px;
-        margin-right: 10px;
+        flex: 0 0 auto;
+        width: auto;     /* let width adjust naturally */
+        max-width: 80vw; /* keep some margin on sides */
+        height: auto;    /* height adapts to image */
+        border-radius: 0; /* remove box styling */
+        overflow: visible; /* no cropping */
+        box-shadow: none;  /* remove shadow */
+        background: none;  /* remove any background */
     }
 
     .slide img {
         width: 100%;
         height: auto;
-        max-height: 180px;
+        display: block;
+        object-fit: contain; /* ensure full image visible */
+        border-radius: 8px;  /* optional slight rounding */
+    }
+
+
+    .slide:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    }
+
+
+    .slider-wrapper {
+    position: relative;
+}
+
+.slider-wrapper::before,
+.slider-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 30px; /* width of fade */
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.slider-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, #faf6f0, transparent);
+}
+
+.slider-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, #faf6f0, transparent);
+}
+
+
+    /* Optional: subtle fade at the edges */
+    .slider::before,
+    .slider::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 30px;
+        height: 100%;
+        pointer-events: none;
+        z-index: 5;
+    }
+
+    .slider::before {
+        left: 0;
+        background: linear-gradient(to right, #faf6f0, rgba(250,246,240,0));
+    }
+
+    .slider::after {
+        right: 0;
+        background: linear-gradient(to left, #faf6f0, rgba(250,246,240,0));
     }
 
     .free-time-section .section-title {
