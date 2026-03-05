@@ -1,121 +1,78 @@
-// Modal elements for image/text modal
-const modal = document.getElementById('modal');
-const modalImg = document.getElementById('modal-img');
-const modalTitle = document.getElementById('modal-title');
-const modalDesc = document.getElementById('modal-desc');
-const closeBtn = document.getElementById('close');
+// Hamburger menu toggle
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+const closeMenu = document.getElementById('close-menu');
+hamburger?.addEventListener('click', ()=>navMenu.classList.toggle('active'));
+closeMenu?.addEventListener('click', ()=>navMenu.classList.remove('active'));
 
-// Modal elements for iframe project viewer
-const projectViewer = document.getElementById('project-viewer');
-const projectFrame = document.getElementById('project-frame');
-const closeViewer = document.getElementById('close-viewer');
+// Intro animations
+// window.addEventListener('load', () => {
+//     const introTitle = document.querySelector('.intro-title');
+//     const introDetails = document.querySelector('.intro-details');
 
-document.querySelectorAll('.portfolio-item').forEach(item => {
-    item.addEventListener('click', () => {
-        const projectURL = item.getAttribute('data-link');
+//     setTimeout(()=>introTitle.classList.add('fade-in'), 200);
+//     setTimeout(()=>introDetails.classList.add('fade-in'), 600);
+// });
 
-        if (projectURL) {
-            // Open iframe modal for projects with data-link
-            projectFrame.src = projectURL;
-            projectViewer.style.display = 'block';
+const navLinks = document.querySelectorAll('#nav-menu ul li a');
 
-            // Make sure image modal is closed
-            modal.style.display = 'none';
-            modalImg.src = '';
-            modalTitle.textContent = '';
-            modalDesc.textContent = '';
-        } else {
-            // Open image/text modal for projects without data-link
-            modal.style.display = 'block';
-            modalImg.src = item.getAttribute('data-img');
-            modalTitle.textContent = item.getAttribute('data-title');
-            modalDesc.textContent = item.getAttribute('data-desc');
+navLinks.forEach(link => {
+  const linkHref = link.getAttribute('href');
+  // Get current page name from URL
+  const currentPage = window.location.pathname.split("/").pop();
 
-            // Make sure iframe modal is closed
-            projectViewer.style.display = 'none';
-            projectFrame.src = '';
-        }
-    });
+  if (linkHref === currentPage) {
+    link.classList.add('active'); // underline stays on current page
+  }
 });
 
-// Close handlers for image/text modal
+
+
+const cards = document.querySelectorAll('.value-card');
+
+function revealCards() {
+    const windowHeight = window.innerHeight;
+    cards.forEach(card => {
+        const cardTop = card.getBoundingClientRect().top;
+        if(cardTop < windowHeight - 100) {
+            card.classList.add('visible');
+        }
+    });
+}
+
+window.addEventListener('scroll', revealCards);
+window.addEventListener('load', revealCards);
+
+
+// Select all case blocks
+const caseBlocks = document.querySelectorAll('.case-block');
+
+// Select modal overlay and iframe
+const overlay = document.getElementById('case-study-overlay');
+const framerIframe = document.getElementById('framer-iframe');
+const closeBtn = document.getElementById('close-iframe');
+
+// Open modal with the correct Framer link
+caseBlocks.forEach(block => {
+  block.addEventListener('click', () => {
+    const link = block.getAttribute('data-framer-link');
+    if(link) {
+      framerIframe.src = link;
+      overlay.style.display = 'flex'; // show the modal
+    }
+  });
+});
+
+// Close button
 closeBtn.addEventListener('click', () => {
-    modal.style.display = 'none';
+  framerIframe.src = '';
+  overlay.style.display = 'none'; // hide the modal
 });
 
-window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        modal.style.display = 'none';
-    }
-});
-
-// Close handler for iframe modal
-closeViewer.addEventListener('click', () => {
-    projectViewer.style.display = 'none';
-    projectFrame.src = "";
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-    const hero = document.querySelector('.hero');
-    const images = [
-        'images/final_project.jpg',
-        'images/rideshare.png',
-        'images/Apple_MacBook_Air_M1_Mockup_v01.png',
-        'images/cover_1.png'
-    ];
-    let currentImage = 0;
-
-    function changeBackground() {
-        hero.style.backgroundImage = `url('${images[currentImage]}')`;
-        currentImage = (currentImage + 1) % images.length;
-    }
-
-    changeBackground();
-    setInterval(changeBackground, 5000);
-});
-
-// Select all sections and nav links
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll("nav ul li a");
-
-window.addEventListener("scroll", () => {
-    let current = "";
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 80; // offset for sticky header
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
-            current = section.getAttribute("id");
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === `#${current}`) {
-            link.classList.add("active");
-        }
-    });
-});
-
-// Hamburger menu toggle with close
-const hamburger = document.getElementById("hamburger");
-const navMenu = document.getElementById("nav-menu");
-const closeMenu = document.getElementById("close-menu");
-const mobileLinks = document.querySelectorAll("#nav-menu a");
-
-// Open menu
-hamburger.addEventListener("click", () => {
-    navMenu.classList.add("active");
-});
-
-// Close menu with close button
-closeMenu.addEventListener("click", () => {
-    navMenu.classList.remove("active");
-});
-
-// Close menu when clicking a link
-mobileLinks.forEach(link => {
-    link.addEventListener("click", () => {
-        navMenu.classList.remove("active");
-    });
+// Optional: click outside iframe to close modal
+overlay.addEventListener('click', e => {
+  if(e.target === overlay) {
+    framerIframe.src = '';
+    overlay.style.display = 'none';
+  }
 });
